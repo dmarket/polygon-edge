@@ -2,8 +2,10 @@ name: Release
 
 on:
   push:
-    branches-ignore:
-      - '**'
+    branches:
+      - devops
+    # branches-ignore:
+    #   - '**'
     tags:
       - 'v*.*.*'
       # to be used by fork patch-releases ^^
@@ -40,19 +42,18 @@ jobs:
           		-e GITHUB_TOKEN \
           		-e DOCKER_USERNAME \
           		-e DOCKER_PASSWORD \
-          		-e SLACK_WEBHOOK \
           		-v /var/run/docker.sock:/var/run/docker.sock \
           		-v `pwd`:/go/src/$(PACKAGE_NAME) \
           		-w /go/src/$(PACKAGE_NAME) \
           		ghcr.io/troian/golang-cross:${GOLANG_CROSS_VERSION} \
           		--rm-dist --skip-validate
         env:
-          PACKAGE_NAME: github.com/0xPolygon/polygon-edge
+          PACKAGE_NAME: github.com/dmarket/polygon-edge
           GOLANG_CROSS_VERSION: v1.17.2
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           VERSION: ${{ steps.prepare.outputs.tag_name }}
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-          SLACK_CHANNEL: ${{ secrets.SLACK_CHANNEL }}
+          # SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          # SLACK_CHANNEL: ${{ secrets.SLACK_CHANNEL }}
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
     if: github.actor == 'lazartravica' || github.actor == 'zivkovicmilos'
