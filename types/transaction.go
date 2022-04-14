@@ -8,17 +8,17 @@ import (
 )
 
 type Transaction struct {
-	Nonce    uint64
-	GasPrice *big.Int
-	Gas      uint64
-	To       *Address
-	Value    *big.Int
-	Input    []byte
-	V        *big.Int
-	R        *big.Int
-	S        *big.Int
-	Hash     Hash
-	From     Address
+	Nonce    uint64   `json:"nonce"`
+	GasPrice *big.Int `json:"gasPrice"`
+	Gas      uint64   `json:"gas"`
+	To       *Address `json:"to"`
+	Value    *big.Int `json:"value"`
+	Input    []byte   `json:"input"`
+	V        *big.Int `json:"v"`
+	R        *big.Int `json:"r"`
+	S        *big.Int `json:"s"`
+	Hash     Hash     `json:"hash"`
+	From     Address  `json:"from"`
 
 	// Cache
 	size atomic.Value

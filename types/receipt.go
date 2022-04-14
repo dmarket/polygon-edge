@@ -21,16 +21,16 @@ type Receipts []*Receipt
 
 type Receipt struct {
 	// consensus fields
-	Root              Hash
-	CumulativeGasUsed uint64
-	LogsBloom         Bloom
-	Logs              []*Log
-	Status            *ReceiptStatus
+	Root              Hash           `json:"root"`
+	CumulativeGasUsed uint64         `json:"cumulativeGasUsed"`
+	LogsBloom         Bloom          `json:"logsBloom"`
+	Logs              []*Log         `json:"logs"`
+	Status            *ReceiptStatus `json:"status"`
 
 	// context fields
-	GasUsed         uint64
-	ContractAddress Address
-	TxHash          Hash
+	GasUsed         uint64           `json:"gasUsed"`
+	ContractAddress Address          `json:"contractAddress"`
+    TxHash          Hash             `json:"transactionHash"`
 }
 
 func (r *Receipt) SetStatus(s ReceiptStatus) {
