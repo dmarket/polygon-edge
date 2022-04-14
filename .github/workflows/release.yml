@@ -6,10 +6,10 @@ on:
       - devops
     # branches-ignore:
     #   - '**'
-    tags:
-      - 'v*.*.*'
-      # to be used by fork patch-releases ^^
-      - 'v*.*.*-*'
+    # tags:
+    #   - 'v*.*.*'
+    #   # to be used by fork patch-releases ^^
+    #   - 'v*.*.*-*'
 
 jobs:
   goreleaser:

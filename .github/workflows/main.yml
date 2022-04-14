@@ -71,8 +71,8 @@ jobs:
       - name: Add race artifacts directory to the path
         run: echo "$(pwd)/artifacts" >> $GITHUB_PATH
 
-      - name: Go test
-        run: go test -timeout 28m ./...
+      # - name: Go test
+      #   run: go test -timeout 28m ./...
 
       - name: Go build without race
         run: CGO_ENABLED=0 GOOS=linux go build -a -o artifacts/polygon-edge .
