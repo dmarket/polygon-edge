@@ -121,7 +121,7 @@ docker_manifests:
       - globalgames/{{ .ProjectName }}:{{ .Version }}-arm64
     skip_push: false
 
-  - name_template: 0xpolygon/{{ .ProjectName }}:latest
+  - name_template: globalgames/{{ .ProjectName }}:latest
     image_templates:
       - globalgames/{{ .ProjectName }}:{{ .Version }}-amd64
       - globalgames/{{ .ProjectName }}:{{ .Version }}-arm64
